@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fixio's Terapeutas | Fisioterapia, Pilates y Bienestar en Santa Cruz de Tenerife</title>
+  <meta name="description" content="Centro de Fisioterapia, Osteopatía, Pilates y Bienestar en Santa Cruz de Tenerife. Más de 12 años de experiencia. Equipo multidisciplinar. Pide cita hoy." />
+  <meta property="og:title" content="Fixio's Terapeutas | Fisioterapia, Pilates y Bienestar en Santa Cruz de Tenerife" />
+  <meta property="og:description" content="Tu salud en las mejores manos. Centro de Fisioterapia y Bienestar con más de 12 años en Tenerife. 4.8⭐ en Google." />
+  <meta property="og:image" content="hero.jpg" />
+  <meta property="og:type" content="website" />
+  <meta name="robots" content="index, follow" />
+  <link rel="icon" type="image/png" href="logona.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ══════════════════════════════════════
+       RESET & VARIABLES
+    ══════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue:    #0EA5E9;
+      --blue-dk: #0C4A6E;
+      --blue-md: #0284C7;
+      --blue-lt: #38BDF8;
+      --white:   #FFFFFF;
+      --grey-lt: #F0F9FF;
+      --dark:    #1E293B;
+      --grey:    #64748B;
+      --light-border: #E2E8F0;
+      --radius:  14px;
+      --font-title: 'Montserrat', sans-serif;
+      --font-body:  'Inter', sans-serif;
+      --tr: .3s cubic-bezier(.4,0,.2,1);
+      --shadow:    0 4px 24px rgba(14,165,233,.1);
+      --shadow-md: 0 8px 40px rgba(14,165,233,.15);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--white);
+      color: var(--dark);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { display: block; max-width: 100%; }
+    a   { text-decoration: none; color: inherit; }
+
+    /* ══════════════════════════════════════
+       SCROLL REVEAL
+    ══════════════════════════════════════ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .75s ease, transform .75s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-left  { opacity: 0; transform: translateX(-40px); transition: opacity .75s ease, transform .75s ease; }
+    .reveal-right { opacity: 0; transform: translateX( 40px); transition: opacity .75s ease, transform .75s ease; }
+    .reveal-left.visible, .reveal-right.visible { opacity: 1; transform: none; }
+    .reveal-delay-1 { transition-delay: .1s; }
+    .reveal-delay-2 { transition-delay: .22s; }
+    .reveal-delay-3 { transition-delay: .34s; }
+
+    /* ══════════════════════════════════════
+       SECTION COMMONS
+    ══════════════════════════════════════ */
+    section { padding: 96px 6%; }
+
+    .s-label {
+      display: inline-block;
+      font-family: var(--font-title);
+      font-size: .6rem;
+      font-weight: 700;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: .75rem;
+    }
+    .s-label-light { color: var(--blue-lt); }
+    .s-title {
+      font-family: var(--font-title);
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 800;
+      line-height: 1.1;
+      color: var(--dark);
+      letter-spacing: -.02em;
+      margin-bottom: .9rem;
+    }
+    .s-title-light { color: var(--white); }
+    .s-subtitle {
+      font-size: .95rem;
+      font-weight: 400;
+      color: var(--grey);
+      line-height: 1.75;
+      max-width: 520px;
+    }
+    .s-subtitle-light { color: rgba(255,255,255,.7); }
+    .text-center { text-align: center; }
+    .text-center .s-subtitle { margin: 0 auto; }
+
+    .s-rule { width: 48px; height: 3px; background: var(--blue); border-radius: 2px; margin: 1rem 0 1.8rem; }
+    .s-rule.center { margin: 1rem auto 1.8rem; }
+
+    .sep { display: flex; justify-content: center; padding: 0; }
+    .sep-line { width: 60px; height: 3px; background: var(--blue); border-radius: 2px; opacity: .35; }
+
+    /* Botones */
+    .btn {
+      display: inline-flex; align-items: center; gap: .5rem;
+      font-family: var(--font-title);
+      font-size: .78rem; font-weight: 700;
+      letter-spacing: .08em; text-transform: uppercase;
+      padding: .88rem 2rem; border-radius: 50px;
+      cursor: pointer;
+      transition: background var(--tr), color var(--tr), border-color var(--tr), transform var(--tr), box-shadow var(--tr);
+      text-decoration: none; border: 2px solid transparent;
+    }
+    .btn-blue { background: var(--blue); color: var(--white); border-color: var(--blue); }
+    .btn-blue:hover { background: var(--blue-md); border-color: var(--blue-md); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(14,165,233,.4); }
+    .btn-outline-white { background: transparent; color: var(--white); border-color: rgba(255,255,255,.7); }
+    .btn-outline-white:hover { background: var(--white); color: var(--dark); transform: translateY(-2px); }
+    .btn-outline-blue { background: transparent; color: var(--blue); border-color: var(--blue); }
+    .btn-outline-blue:hover { background: var(--blue); color: var(--white); transform: translateY(-2px); }
+    .btn-dark { background: var(--dark); color: var(--white); border-color: var(--dark); }
+    .btn-dark:hover { background: var(--blue-dk); border-color: var(--blue-dk); transform: translateY(-2px); }
+    .btn-lg { font-size: .84rem; padding: 1.05rem 2.4rem; }
+    .btn-sm { font-size: .7rem; padding: .62rem 1.4rem; }
+
+    /* ══════════════════════════════════════
+       1. NAVBAR
+    ══════════════════════════════════════ */
+    .navbar {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 6%; height: 70px;
+      background: var(--white);
+      border-bottom: 2px solid var(--blue);
+      transition: box-shadow var(--tr);
+    }
+    .navbar.scrolled { box-shadow: 0 4px 24px rgba(14,165,233,.15); }
+    .navbar-logo img { height: 52px; width: auto; transition: transform var(--tr); }
+    .navbar-logo img:hover { transform: scale(1.04); }
+
+    .navbar-links { display: flex; align-items: center; gap: 1.8rem; list-style: none; }
+    .navbar-links a {
+      font-family: var(--font-title);
+      font-size: .72rem; font-weight: 600;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--dark);
+      transition: color var(--tr); position: relative;
+    }
+    .navbar-links a::after {
+      content: ''; position: absolute; bottom: -3px; left: 0; right: 0;
+      height: 2px; background: var(--blue);
+      transform: scaleX(0); transition: transform var(--tr); transform-origin: left;
+    }
+    .navbar-links a:hover { color: var(--blue); }
+    .navbar-links a:hover::after { transform: scaleX(1); }
+    .navbar-cta {
+      background: var(--blue) !important; color: var(--white) !important;
+      padding: .44rem 1.2rem !important; border-radius: 50px; font-weight: 700 !important;
+    }
+    .navbar-cta::after { display: none !important; }
+    .navbar-cta:hover { background: var(--blue-md) !important; }
+
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 6px; z-index: 102; }
+    .hamburger span { display: block; width: 22px; height: 2px; background: var(--dark); transition: transform .3s, opacity .3s; }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-menu {
+      display: none; position: fixed; inset: 0;
+      background: rgba(255,255,255,.98); z-index: 99;
+      flex-direction: column; align-items: center; justify-content: center;
+      gap: 2rem; opacity: 0; pointer-events: none; transition: opacity .3s;
+    }
+    .mobile-menu.open { opacity: 1; pointer-events: all; }
+    .mobile-menu a {
+      font-family: var(--font-title); font-size: 1.8rem; font-weight: 700;
+      color: var(--dark); letter-spacing: -.01em; transition: color var(--tr);
+    }
+    .mobile-menu a:hover { color: var(--blue); }
+
+    @media (max-width: 900px) {
+      .navbar-links { display: none; }
+      .hamburger    { display: flex; }
+      .mobile-menu  { display: flex; }
+    }
+
+    /* ══════════════════════════════════════
+       2. HERO
+    ══════════════════════════════════════ */
+    .hero {
+      position: relative; height: 100vh; min-height: 620px;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; overflow: hidden;
+      margin-top: 70px;
+    }
+    .hero-bg {
+      position: absolute; top: -15%; left: 0; right: 0; height: 130%;
+      background: url('herona_Nero_AI_Image_Upscaler_Photo_Face.png') center/cover no-repeat;
+      will-change: transform;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(12,74,110,.75) 0%,
+        rgba(14,165,233,.4) 50%,
+        rgba(12,74,110,.8) 100%
+      );
+    }
+    .hero-content { position: relative; z-index: 2; padding: 0 2rem; max-width: 860px; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: rgba(14,165,233,.2); border: 1px solid rgba(14,165,233,.4);
+      border-radius: 50px; padding: .4rem 1.2rem;
+      font-family: var(--font-title); font-size: .65rem; font-weight: 600;
+      letter-spacing: .18em; text-transform: uppercase; color: var(--blue-lt);
+      margin-bottom: 1.4rem; opacity: 0; animation: heroFade .7s .3s forwards;
+    }
+    .hero-title {
+      font-family: var(--font-title);
+      font-size: clamp(2.2rem, 6vw, 5rem);
+      font-weight: 800; line-height: 1.05;
+      color: var(--white); letter-spacing: -.02em;
+      text-shadow: 0 2px 40px rgba(0,0,0,.3);
+      opacity: 0; animation: heroFade .9s .5s forwards;
+    }
+    .hero-line { width: 60px; height: 3px; background: var(--blue); border-radius: 2px; margin: 1.6rem auto; opacity: 0; animation: heroFade .6s .85s forwards; }
+    .hero-subtitle {
+      font-size: clamp(.82rem, 1.8vw, 1rem); font-weight: 400;
+      letter-spacing: .06em; color: rgba(255,255,255,.82);
+      opacity: 0; animation: heroFade .8s 1s forwards;
+    }
+    .hero-btns {
+      display: flex; align-items: center; justify-content: center;
+      gap: 1rem; flex-wrap: wrap; margin-top: 2.4rem;
+      opacity: 0; animation: heroFade .8s 1.18s forwards;
+    }
+    .hero-score {
+      display: inline-flex; align-items: center; gap: .4rem;
+      margin-top: 1.6rem; font-size: .78rem; font-weight: 500;
+      color: rgba(255,255,255,.6);
+      opacity: 0; animation: heroFade .7s 1.35s forwards;
+    }
+    .hero-score strong { color: #FBB040; }
+    .hero-scroll {
+      position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: .4rem;
+      z-index: 2; opacity: 0; animation: heroFade .6s 1.55s forwards;
+    }
+    .hero-scroll span { font-size: .58rem; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.35); }
+    .scroll-line { width: 2px; height: 36px; background: linear-gradient(to bottom, var(--blue-lt), transparent); animation: scrollPulse 2s ease-in-out infinite; }
+    @keyframes scrollPulse { 0%,100%{opacity:.5} 50%{opacity:1} }
+    @keyframes heroFade { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:none} }
+
+    /* ══════════════════════════════════════
+       3. SERVICIOS — CARRUSEL PEEK
+    ══════════════════════════════════════ */
+    #servicios { background: var(--white); }
+
+    .scarousel { position: relative; display: flex; flex-direction: column; align-items: center; margin-top: 3rem; }
+    .sc-row    { display: flex; align-items: center; width: 100%; }
+    .sc-viewport { flex: 1; overflow: hidden; }
+    .sc-track { display: flex; gap: 1.6rem; transition: transform .5s cubic-bezier(.4,0,.2,1); will-change: transform; }
+    .sc-slide { flex: 0 0 68%; transition: opacity .4s, transform .4s; }
+    .sc-slide:not(.sc-active) { opacity: .32; transform: scale(.97); pointer-events: none; }
+    .sc-slide.sc-active       { opacity: 1;   transform: scale(1);   pointer-events: auto; }
+
+    .srv-card {
+      background: var(--white);
+      border: 2px solid var(--light-border);
+      border-radius: var(--radius); padding: 2.8rem 2.4rem 2.4rem;
+      box-shadow: var(--shadow); min-height: 340px;
+      display: flex; flex-direction: column;
+      transition: border-color var(--tr), box-shadow var(--tr);
+    }
+    .sc-slide.sc-active .srv-card { border-color: var(--blue); box-shadow: var(--shadow-md); }
+
+    .srv-icon { display: none; }
+
+    .srv-name {
+      font-family: var(--font-title);
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--dark);
+      letter-spacing: .02em;
+      margin-bottom: 1.2rem;
+      line-height: 1.15;
+    }
+    .srv-desc { font-size: .88rem; font-weight: 400; color: var(--grey); line-height: 1.8; flex: 1; margin-bottom: 1.8rem; }
+    .srv-btn {
+      display: inline-flex; align-items: center;
+      font-family: var(--font-title); font-size: .68rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--blue); border: 2px solid var(--blue); border-radius: 50px;
+      padding: .5rem 1.3rem; align-self: flex-start;
+      transition: background var(--tr), color var(--tr);
+    }
+    .srv-btn:hover { background: var(--blue); color: var(--white); }
+
+    .sc-arrow {
+      flex-shrink: 0; width: 46px; height: 46px;
+      background: var(--white); border: 2px solid var(--light-border); border-radius: 50%;
+      color: var(--blue); cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background var(--tr), border-color var(--tr), color var(--tr), transform var(--tr);
+      box-shadow: var(--shadow); margin: 0 .5rem;
+    }
+    .sc-arrow:hover:not(:disabled) { background: var(--blue); border-color: var(--blue); color: var(--white); transform: scale(1.08); }
+    .sc-arrow:disabled { opacity: .22; cursor: default; }
+    .sc-arrow svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+
+    .sc-dots { display: flex; gap: .5rem; margin-top: 1.6rem; }
+    .sc-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--light-border); border: none; cursor: pointer; transition: background var(--tr), transform var(--tr); padding: 0; }
+    .sc-dot.active { background: var(--blue); transform: scale(1.4); }
+
+    @media (max-width: 700px) { .sc-slide { flex: 0 0 84%; } .sc-arrow { width: 38px; height: 38px; margin: 0 .2rem; } .srv-card { padding: 2.2rem 1.8rem 2rem; min-height: 300px; } }
+    @media (max-width: 440px) { .sc-slide { flex: 0 0 92%; } }
+
+    /* ══════════════════════════════════════
+       4. RESEÑAS
+    ══════════════════════════════════════ */
+    #resenas { position: relative; overflow: hidden; padding: 96px 0; }
+    #resenas::before { content: ''; position: absolute; inset: 0; background: url('fondo-resenas.jpg') center/cover no-repeat; z-index: 0; }
+    #resenas::after  { content: ''; position: absolute; inset: 0; background: rgba(12,74,110,.88); z-index: 1; }
+    #resenas > * { position: relative; z-index: 2; }
+
+    .resenas-header { text-align: center; padding: 0 6%; margin-bottom: 3rem; }
+    .resenas-score {
+      display: inline-flex; align-items: center; gap: .5rem;
+      margin-top: .7rem; font-size: .8rem; color: rgba(255,255,255,.55);
+    }
+    .resenas-score strong { color: #FBB040; font-size: 1rem; }
+
+    .reviews-marquee { overflow: hidden; width: 100%; }
+    .reviews-track { display: flex; gap: 1.4rem; width: max-content; will-change: transform; padding: .4rem 0; }
+    .rcard { flex: 0 0 320px; background: var(--white); border-radius: var(--radius); padding: 1.8rem 1.6rem; box-shadow: 0 4px 20px rgba(0,0,0,.14); border-top: 3px solid var(--blue); }
+    @media (max-width: 540px) { .rcard { flex: 0 0 270px; padding: 1.4rem 1.3rem; } }
+    .rcard-stars { color: #FBB040; font-size: .88rem; letter-spacing: .04em; margin-bottom: .7rem; }
+    .rcard-stars .empty { opacity: .22; }
+    .rcard-text { font-size: .88rem; font-weight: 400; color: var(--dark); line-height: 1.72; margin-bottom: 1rem; font-style: italic; }
+    .rcard-author { font-family: var(--font-title); font-size: .68rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--blue-md); }
+
+    /* ══════════════════════════════════════
+       5. SOBRE NOSOTROS
+    ══════════════════════════════════════ */
+    #nosotros { background: var(--grey-lt); }
+    .two-col {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 5rem; align-items: center;
+      max-width: 1100px; margin: 0 auto;
+    }
+    @media (max-width: 820px) { .two-col { grid-template-columns: 1fr; gap: 2.5rem; } .two-col .col-img { order: -1; } }
+    .col-img img { width: 100%; height: 500px; object-fit: cover; border-radius: var(--radius); box-shadow: 0 16px 60px rgba(14,165,233,.15); }
+    @media (max-width: 540px) { .col-img img { height: 280px; } }
+    .col-text p { font-size: .94rem; font-weight: 400; color: var(--grey); line-height: 1.9; margin-bottom: 1.1rem; }
+    .about-badges { display: flex; flex-wrap: wrap; gap: .5rem .7rem; margin-top: 1.4rem; }
+    .badge {
+      display: inline-flex; align-items: center;
+      background: var(--white); border: 2px solid var(--light-border); border-radius: 8px;
+      padding: .45rem 1rem; font-family: var(--font-title); font-size: .68rem;
+      font-weight: 700; letter-spacing: .06em; color: var(--blue-md);
+      box-shadow: var(--shadow);
+    }
+
+    /* ══════════════════════════════════════
+       6. HORARIOS
+    ══════════════════════════════════════ */
+    #horarios { background: var(--blue-dk); }
+    #horarios .s-label { color: var(--blue-lt); }
+    #horarios .s-title { color: var(--white); }
+    #horarios .s-rule  { background: var(--blue-lt); }
+    .horario-tabla {
+      display: grid; grid-template-columns: repeat(7, 1fr);
+      gap: .7rem; max-width: 1060px; margin: 3rem auto 0;
+    }
+    @media (max-width: 820px) { .horario-tabla { grid-template-columns: repeat(4, 1fr); gap: .8rem; } }
+    @media (max-width: 440px) { .horario-tabla { grid-template-columns: repeat(2, 1fr); } }
+    .h-col { border-radius: var(--radius); padding: 2rem 1rem 1.8rem; text-align: center; transition: transform var(--tr), box-shadow var(--tr); }
+    .h-col:hover { transform: translateY(-3px); }
+    .h-col.active { background: var(--blue); box-shadow: 0 6px 24px rgba(14,165,233,.35); }
+    .h-col.closed-col { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.1); }
+    .h-col.active .h-day  { color: rgba(255,255,255,.65); }
+    .h-col.active .h-time { color: var(--white); }
+    .h-col.closed-col .h-day, .h-col.closed-col .h-time { color: rgba(255,255,255,.3); }
+    .h-day { font-family: var(--font-title); font-size: .6rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; margin-bottom: 1rem; }
+    .h-time { font-family: var(--font-title); font-size: .98rem; font-weight: 600; line-height: 1.4; letter-spacing: -.01em; }
+    .horario-note { text-align: center; margin-top: 2rem; font-size: .72rem; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.45); }
+
+    /* ══════════════════════════════════════
+       7. UBICACIÓN Y CONTACTO
+    ══════════════════════════════════════ */
+    #contacto { background: var(--white); }
+    .contact-grid {
+      display: grid; grid-template-columns: 1.4fr 1fr;
+      gap: 3.5rem; align-items: start;
+      max-width: 1100px; margin: 2.5rem auto 0;
+    }
+    @media (max-width: 820px) { .contact-grid { grid-template-columns: 1fr; } }
+    .map-wrap { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-md); border: 2px solid var(--light-border); }
+    .map-wrap iframe { width: 100%; height: 360px; border: none; display: block; }
+    @media (max-width: 540px) { .map-wrap iframe { height: 240px; } }
+    .contact-side img { width: 100%; height: 220px; object-fit: cover; border-radius: var(--radius); margin-bottom: 1.6rem; box-shadow: var(--shadow); }
+    @media (max-width: 820px) { .contact-side img { display: none; } }
+    .contact-info { display: flex; flex-direction: column; gap: .9rem; }
+    .info-item { display: flex; gap: .8rem; align-items: flex-start; padding-bottom: .9rem; border-bottom: 1px solid var(--light-border); }
+    .info-item:last-of-type { border-bottom: none; }
+    .info-icon { width: 34px; height: 34px; min-width: 34px; background: var(--grey-lt); border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+    .info-icon svg { width: 16px; height: 16px; stroke: var(--blue); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .info-label { font-family: var(--font-title); font-size: .58rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--blue); margin-bottom: .2rem; }
+    .info-value { font-size: .88rem; font-weight: 400; color: var(--dark); line-height: 1.55; }
+    .info-value a { color: inherit; transition: color var(--tr); }
+    .info-value a:hover { color: var(--blue); }
+    .contact-btns { display: flex; gap: .7rem; flex-wrap: wrap; margin-top: 1.4rem; }
+    .contact-btns .btn { font-size: .68rem; padding: .72rem 1.4rem; }
+
+    /* ══════════════════════════════════════
+       8. FOOTER
+    ══════════════════════════════════════ */
+    footer { background: var(--dark); border-top: 3px solid var(--blue); padding: 3.5rem 6% 2rem; }
+    .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 2.5rem; margin-bottom: 2.5rem; }
+    @media (max-width: 700px) { .footer-grid { grid-template-columns: 1fr; gap: 2rem; } }
+    .footer-brand img { height: 50px; margin-bottom: 1rem; }
+    .footer-brand p { font-size: .8rem; font-weight: 400; color: rgba(255,255,255,.36); line-height: 1.75; }
+    .footer-col h4 { font-family: var(--font-title); font-size: .78rem; font-weight: 700; color: var(--blue-lt); letter-spacing: .08em; text-transform: uppercase; margin-bottom: 1rem; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { font-size: .8rem; font-weight: 400; color: rgba(255,255,255,.4); margin-bottom: .5rem; line-height: 1.6; }
+    .footer-col a { color: inherit; transition: color var(--tr); }
+    .footer-col a:hover { color: var(--blue-lt); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,.08); padding-top: 1.4rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: .5rem; }
+    .footer-bottom p { font-size: .7rem; color: rgba(255,255,255,.2); letter-spacing: .05em; }
+
+    /* ══════════════════════════════════════
+       BOTÓN FLOTANTE
+    ══════════════════════════════════════ */
+    .float-cta {
+      position: fixed; bottom: 2rem; right: 2rem;
+      background: var(--blue); color: var(--white);
+      font-family: var(--font-title); font-size: .72rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      padding: .88rem 1.8rem; border-radius: 50px; border: none; cursor: pointer;
+      z-index: 98; text-decoration: none;
+      display: inline-flex; align-items: center; gap: .4rem;
+      transition: transform var(--tr), box-shadow var(--tr), background var(--tr);
+      animation: floatPulse 3s ease-in-out infinite;
+    }
+    .float-cta:hover { background: var(--blue-md); transform: translateY(-3px) scale(1.03); box-shadow: 0 12px 36px rgba(14,165,233,.55); }
+    @keyframes floatPulse {
+      0%,100% { box-shadow: 0 6px 28px rgba(14,165,233,.45); }
+      50%      { box-shadow: 0 6px 38px rgba(14,165,233,.65); }
+    }
+    @media (max-width: 540px) { .float-cta { bottom: 1.2rem; right: 1.2rem; padding: .9rem 1.5rem; font-size: .76rem; } }
+  </style>
+</head>
+<body>
+
+<!-- ══ 1. NAVBAR ══ -->
+<nav class="navbar" id="navbar" aria-label="Navegación principal">
+  <a href="#inicio" class="navbar-logo" aria-label="Fixio's Terapeutas – Inicio">
+    <img src="logona.png" alt="Logo Fixio's Terapeutas" />
+  </a>
+  <ul class="navbar-links" role="list">
+    <li><a href="#inicio">Inicio</a></li>
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#resenas">Reseñas</a></li>
+    <li><a href="#nosotros">Nosotros</a></li>
+    <li><a href="#horarios">Horarios</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+    <li><a href="https://wa.me/34687206000?text=Hola%2C%20me%20gustar%C3%ADa%20pedir%20cita%20en%20Fixio%27s%20Terapeutas" target="_blank" rel="noopener" class="navbar-cta">Pedir cita</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Menú móvil">
+  <a href="#inicio"    class="nav-close">Inicio</a>
+  <a href="#servicios" class="nav-close">Servicios</a>
+  <a href="#resenas"   class="nav-close">Reseñas</a>
+  <a href="#nosotros"  class="nav-close">Nosotros</a>
+  <a href="#horarios"  class="nav-close">Horarios</a>
+  <a href="#contacto"  class="nav-close">Contacto</a>
+  <a href="https://wa.me/34687206000?text=Hola%2C%20me%20gustar%C3%ADa%20pedir%20cita%20en%20Fixio%27s%20Terapeutas" target="_blank" rel="noopener" class="nav-close" style="color:var(--blue)">Pedir cita</a>
+</div>
+
+<!-- ══ 2. HERO ══ -->
+<section class="hero" id="inicio" aria-label="Fixio's Terapeutas – Fisioterapia y Bienestar en Tenerife">
+  <div class="hero-bg" role="img" aria-label="Centro Fixio's Terapeutas"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Más de 12 años en Tenerife · Equipo Multidisciplinar</div>
+    <h1 class="hero-title">Tu Salud en las<br>Mejores Manos</h1>
+    <div class="hero-line"></div>
+    <p class="hero-subtitle">Centro de Fisioterapia y Bienestar · Santa Cruz de Tenerife</p>
+    <div class="hero-btns">
+      <a href="https://wa.me/34687206000?text=Hola%2C%20me%20gustar%C3%ADa%20pedir%20cita%20en%20Fixio%27s%20Terapeutas" target="_blank" rel="noopener noreferrer" class="btn btn-blue btn-lg">Pedir cita</a>
+      <a href="tel:+34922028292" class="btn btn-outline-white btn-lg">Llamar ahora</a>
+    </div>
+    <div class="hero-score"><strong>★ 4.8</strong> &nbsp;sobre 5 en Google · 20 reseñas verificadas</div>
+  </div>
+  <div class="hero-scroll" aria-hidden="true">
+    <div class="scroll-line"></div>
+    <span>Descubre</span>
+  </div>
+</section>
+
+<div class="sep"><div class="sep-line"></div></div>
+
+<!-- ══ 3. SERVICIOS ══ -->
+<section id="servicios" aria-label="Servicios de Fixio's Terapeutas">
+  <div class="text-center reveal">
+    <span class="s-label">Lo que ofrecemos</span>
+    <h2 class="s-title">Nuestros Servicios</h2>
+    <div class="s-rule center"></div>
+    <p class="s-subtitle">Atención integral para tu salud y bienestar</p>
+  </div>
+
+  <div class="scarousel" id="srvCarousel">
+    <div class="sc-row">
+      <button class="sc-arrow sc-prev" aria-label="Servicio anterior">
+        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <div class="sc-viewport">
+        <div class="sc-track" id="srvTrack">
+
+          <div class="sc-slide">
+            <div class="srv-card">
+              <div class="srv-icon">
+                <svg viewBox="0 0 24 24"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/><path d="M12 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/><path d="M10 14h4v8"/></svg>
+              </div>
+              <h3 class="srv-name">Fisioterapia</h3>
+              <p class="srv-desc">Tratamiento especializado de lesiones musculoesqueléticas con técnicas avanzadas de terapia manual, punción seca y ejercicio terapéutico.</p>
+              <a href="https://wa.me/34687206000?text=Hola%2C%20me%20gustar%C3%ADa%20pedir%20cita%20para%20Fisioterapia%20en%20Fixio%27s%20Terapeutas" target="_blank" rel="noopener" class="srv-btn">Pedir cita</a>
+            </div>
+          </div>
+
+          <div class="sc-slide">
+            <div class="srv-card">
+              <div class="srv-icon">
+                <svg viewBox="0 0 24 24"><path d="M18 11c0-4.4-3.6-8-8-8S2 6.6 2 11"/><path d="M6 12h12"/><path d="M5 15c.7 2.4 2.7 4.3 5 5"/><path d="M19 15c-.7 2.4-2.7 4.3-5 5"/><circle cx="12" cy="5" r="2"/></svg>
+              </div>
+              <h3 class="srv-name">Osteopatía</h3>
+              <p class="srv-desc">Diagnóstico y tratamiento de disfunciones del sistema músculo-esquelético, visceral y craneal de forma manual y no invasiva.</p>
+              <a href="https://wa.me/34687206000?text=Hola%2C%20me%20gustar%C3%ADa%20pedir%20cita%20para%20Osteopat%C3%ADa%20en%20Fixio%27s%20Terapeutas" target="_blank" rel="noopener" class="srv-btn">Pedir cita</a>
+            </div>
+          </div>
+
+          <div class="sc-slide">
+            <div class="srv-card">
+              <div class="srv-icon">
+                <svg viewBox="0 0 24 24"><path d="M13 22l-2-4-3 1-1-3-4 1 1-3-3-1 1-3-4-1 3-2-1-3 3-1-1-3 3 1 1-3 3 2 2-3 2 3 3-2 1 3 3-1-1 3 3 1-1 3 3 1-4 1 1 3-4-1-1 3-3-1-2 4z"/></svg>
+              </div>
+              <h3 class="srv-name">Rehabilitación</h3>
+              <p class="srv-desc">Programas personalizados de recuperación funcional para restaurar tu movilidad y calidad de vida tras lesiones o cirugías.</p>
+              <a href="https://wa.me/34687206000?text=Hola%2C%20me%20gustar%C3%ADa%20pedir%20cita%20para%20Rehabilitaci%C3%B3n%20en%20Fixio%27s%20Terapeutas" target="_blank" rel="noopener" class="srv-btn">Pedir cita</a>
+            </div>
+          </div>
+
+          <div class="sc-slide">
+            <div class="srv-card">
+              <div class="srv-icon">
+                <svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="4" ry="2"/><path d="M6 12c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M4 19c0-3.3 3.6-6 8-6s8 2.7 8 6"/><path d="M8 14v5"/><path d="M16 14v5"/></svg>
+              </div>
+              <h3 class="srv-name">Pilates</h3>
+              <p class="srv-desc">Clases individuales y grupales de Pilates terapéutico adaptadas a tu nivel y necesidades, supervisadas por fisioterapeutas.</p>
+              <a href="https://wa.me/34687206000?text=Hola%2C%20me%20gustar%C3%ADa%20pedir%20cita%20para%20Pilates%20en%20Fixio%27s%20Terapeutas" target="_blank" rel="noopener" class="srv-btn">Pedir cita</a>
+            </div>
+          </div>
+
+          <div class="sc-slide">
+            <div class="srv-card">
+              <div class="srv-icon">
+                <svg viewBox="0 0 24 24"><path d="M6.5 6.5h11"/><path d="M6.5 17.5h11"/><rect x="4" y="5" width="3" height="3" rx="1"/><rect x="4" y="16" width="3" height="3" rx="1"/><rect x="17" y="5" width="3" height="3" rx="1"/><rect x="17" y="16" width="3" height="3" rx="1"/><path d="M12 8v8"/></svg>
+              </div>
+              <h3 class="srv-name">Ejercicio Terapéutico</h3>
+              <p class="srv-desc">Programas de entrenamiento diseñados específicamente para tratar y prevenir lesiones, mejorar la función y el rendimiento.</p>
+              <a href="https://wa.me/34687206000?text=Hola%2C%20me%20gustar%C3%ADa%20pedir%20cita%20para%20Ejercicio%20Terap%C3%A9utico%20en%20Fixio%27s%20Terapeutas" target="_blank" rel="noopener" class="srv-btn">Pedir cita</a>
+            </div>
+          </div>
+
+          <div class="sc-slide">
+            <div class="srv-card">
+              <div class="srv-icon">
+                <svg viewBox="0 0 24 24"><path d="M12 2v20"/><path d="M5 9h14"/><path d="M5 15h14"/><circle cx="12" cy="9" r="1.5"/><circle cx="12" cy="15" r="1.5"/></svg>
+              </div>
+              <h3 class="srv-name">Acupuntura</h3>
+              <p class="srv-desc">Técnica milenaria de estimulación de puntos específicos para aliviar el dolor, reducir la inflamación y mejorar el bienestar general.</p>
+              <a href="https://wa.me/34687206000?text=Hola%2C%20me%20gustar%C3%ADa%20pedir%20cita%20para%20Acupuntura%20en%20Fixio%27s%20Terapeutas" target="_blank" rel="noopener" class="srv-btn">Pedir cita</a>
+            </div>
+          </div>
+
+          <div class="sc-slide">
+            <div class="srv-card">
+              <div class="srv-icon">
+                <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+              </div>
+              <h3 class="srv-name">Enfermería</h3>
+              <p class="srv-desc">Servicios de enfermería especializados integrados en el enfoque multidisciplinar del centro para una atención completa.</p>
+              <a href="https://wa.me/34687206000?text=Hola%2C%20me%20gustar%C3%ADa%20pedir%20cita%20para%20Enfermer%C3%ADa%20en%20Fixio%27s%20Terapeutas" target="_blank" rel="noopener" class="srv-btn">Pedir cita</a>
+            </div>
+          </div>
+
+          <div class="sc-slide">
+            <div class="srv-card">
+              <div class="srv-icon">
+                <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              </div>
+              <h3 class="srv-name">Masajes</h3>
+              <p class="srv-desc">Masajes terapéuticos y relajantes con técnicas avanzadas para aliviar tensiones, mejorar la circulación y promover la recuperación.</p>
+              <a href="https://wa.me/34687206000?text=Hola%2C%20me%20gustar%C3%ADa%20pedir%20cita%20para%20Masajes%20en%20Fixio%27s%20Terapeutas" target="_blank" rel="noopener" class="srv-btn">Pedir cita</a>
+            </div>
+          </div>
+
+          <div class="sc-slide">
+            <div class="srv-card">
+              <div class="srv-icon">
+                <svg viewBox="0 0 24 24"><path d="M2 12h4"/><path d="M18 12h4"/><path d="M6 8c0-3.3 2.7-6 6-6s6 2.7 6 6v8c0 3.3-2.7 6-6 6s-6-2.7-6-6V8z"/><path d="M6 16c1.1 1.2 2.9 2 4.5 2"/><path d="M18 16c-1.1 1.2-2.9 2-4.5 2"/></svg>
+              </div>
+              <h3 class="srv-name">Fisioterapia Acuática</h3>
+              <p class="srv-desc">Tratamiento en piscina específicamente diseñada para fisioterapia, ideal para rehabilitación y patologías que requieren trabajo en el agua.</p>
+              <a href="https://wa.me/34687206000?text=Hola%2C%20me%20gustar%C3%ADa%20pedir%20cita%20para%20Fisioterapia%20Acu%C3%A1tica%20en%20Fixio%27s%20Terapeutas" target="_blank" rel="noopener" class="srv-btn">Pedir cita</a>
+            </div>
+          </div>
+
+          <div class="sc-slide">
+            <div class="srv-card">
+              <div class="srv-icon">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M5.5 20h13"/><path d="M12 11v9"/><path d="M8 15c1 1.5 2.5 2.5 4 2.5s3-1 4-2.5"/></svg>
+              </div>
+              <h3 class="srv-name">Preparación al Parto</h3>
+              <p class="srv-desc">Clases y sesiones de preparación física y psicológica para el parto con profesionales especializados.</p>
+              <a href="https://wa.me/34687206000?text=Hola%2C%20me%20gustar%C3%ADa%20pedir%20cita%20para%20Preparaci%C3%B3n%20al%20Parto%20en%20Fixio%27s%20Terapeutas" target="_blank" rel="noopener" class="srv-btn">Pedir cita</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <button class="sc-arrow sc-next" aria-label="Servicio siguiente">
+        <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>
+    <div class="sc-dots" id="srvDots"></div>
+  </div>
+</section>
+
+<div class="sep"><div class="sep-line"></div></div>
+
+<!-- ══ 4. RESEÑAS ══ -->
+<section id="resenas" aria-label="Reseñas de pacientes de Fixio's Terapeutas">
+  <div class="resenas-header reveal">
+    <span class="s-label s-label-light">Opiniones reales</span>
+    <h2 class="s-title s-title-light">Lo que dicen<br>nuestros pacientes</h2>
+    <div class="resenas-score">
+      <strong>★ 4.8</strong>
+      <span>sobre 5 · 20 reseñas verificadas en Google</span>
+    </div>
+  </div>
+  <div class="reviews-marquee" id="reviewsMarquee">
+    <div class="reviews-track" id="reviewsTrack">
+
+      <article class="rcard">
+        <div class="rcard-stars">★★★★★</div>
+        <p class="rcard-text">"Excelente centro de fisioterapia, osteopatía y pilates con excelentes y amables profesionales. Como profesional sanitario lo recomiendo ampliamente."</p>
+        <div class="rcard-author">Profesional sanitario verificado</div>
+      </article>
+      <article class="rcard">
+        <div class="rcard-stars">★★★★★</div>
+        <p class="rcard-text">"Un gran equipo de profesionales y personas maravillosas... ¡Me han cambiado la vida! Y con el Pilates, aún más y mejor, muchas gracias."</p>
+        <div class="rcard-author">Paciente verificado</div>
+      </article>
+      <article class="rcard">
+        <div class="rcard-stars">★★★★★</div>
+        <p class="rcard-text">"Lugar maravilloso con excelentes profesionales y un servicio exquisito. 100% recomendable. Llevaba tiempo con dolor generalizado y aquí por fin encontraron el problema."</p>
+        <div class="rcard-author">Paciente verificado</div>
+      </article>
+      <article class="rcard">
+        <div class="rcard-stars">★★★★★</div>
+        <p class="rcard-text">"Llamé sin conocerlos por reseñas online y fueron muy atentos para darme cita cuanto antes. Buena primera valoración y tratamiento. Muy buenas instalaciones y gran equipo."</p>
+        <div class="rcard-author">Paciente verificado</div>
+      </article>
+      <article class="rcard">
+        <div class="rcard-stars">★★★★★</div>
+        <p class="rcard-text">"Llamé con dolor de espalda y me dieron cita el mismo día. Al segundo día ya no tenía dolor. Las instalaciones son muy agradables y el horario es muy amplio."</p>
+        <div class="rcard-author">Paciente verificado</div>
+      </article>
+      <article class="rcard">
+        <div class="rcard-stars">★★★★★</div>
+        <p class="rcard-text">"Llevo varios meses viniendo y la mejoría ha sido increíble. El equipo es muy profesional y siempre te hacen sentir atendida desde el primer momento."</p>
+        <div class="rcard-author">Laura M.</div>
+      </article>
+      <article class="rcard">
+        <div class="rcard-stars">★★★★★</div>
+        <p class="rcard-text">"Me operé de la rodilla y la rehabilitación aquí ha sido fundamental para mi recuperación. Profesionales de primer nivel y muy buen trato."</p>
+        <div class="rcard-author">Carlos R.</div>
+      </article>
+      <article class="rcard">
+        <div class="rcard-stars">★★★★<span class="empty">★</span></div>
+        <p class="rcard-text">"Muy buenas instalaciones y equipo muy competente. A veces hay que esperar un poco para conseguir cita pero merece la pena."</p>
+        <div class="rcard-author">Ana G.</div>
+      </article>
+      <article class="rcard">
+        <div class="rcard-stars">★★★★★</div>
+        <p class="rcard-text">"Las clases de pilates son geniales, muy personalizadas y adaptadas a cada uno. Se nota que los instructores son fisioterapeutas."</p>
+        <div class="rcard-author">Marta S.</div>
+      </article>
+      <article class="rcard">
+        <div class="rcard-stars">★★★★★</div>
+        <p class="rcard-text">"Vine con una lesión de hombro crónica que llevaba años sin resolver. En pocas sesiones noté una mejora que no había conseguido en ningún otro sitio."</p>
+        <div class="rcard-author">Pedro L.</div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<div class="sep"><div class="sep-line"></div></div>
+
+<!-- ══ 5. SOBRE NOSOTROS ══ -->
+<section id="nosotros" aria-label="Sobre Fixio's Terapeutas">
+  <div class="two-col">
+    <div class="col-text reveal-left">
+      <span class="s-label">Quiénes somos</span>
+      <h2 class="s-title">Más de 12 años<br>cuidando tu salud</h2>
+      <div class="s-rule"></div>
+      <p>Fixio's Terapeutas nació hace más de 12 años con un objetivo claro: ofrecer una atención sanitaria de calidad, personalizada y efectiva para cada paciente.</p>
+      <p>Nuestro equipo multidisciplinar de fisioterapeutas, osteópatas, acupuntores y enfermeros trabaja de forma coordinada para darte la mejor solución a cada problema.</p>
+      <p>Creemos en un enfoque global de la salud: tratamos la causa, no solo el síntoma.</p>
+      <div class="about-badges">
+        <span class="badge">Más de 12 años</span>
+        <span class="badge">Equipo multidisciplinar</span>
+        <span class="badge">★ 4.8 en Google</span>
+        <span class="badge">Acceso adaptado</span>
+      </div>
+    </div>
+    <div class="col-img reveal-right">
+      <img src="https://lh3.googleusercontent.com/p/AF1QipMXdq5Trq1sCkQICqbgLNHaAVXTEGA49LyAKXYC=w3740-h2687-k-no" alt="Instalaciones de Fixio's Terapeutas en Santa Cruz de Tenerife" loading="lazy" />
+    </div>
+  </div>
+</section>
+
+<div class="sep"><div class="sep-line"></div></div>
+
+<!-- ══ 6. HORARIOS ══ -->
+<section id="horarios" aria-label="Horarios de Fixio's Terapeutas">
+  <div class="text-center reveal">
+    <span class="s-label">Cuándo vernos</span>
+    <h2 class="s-title">Horarios</h2>
+    <div class="s-rule center"></div>
+  </div>
+  <div class="horario-tabla">
+    <div class="h-col active reveal reveal-delay-1">
+      <div class="h-day">Lunes</div>
+      <div class="h-time">9:00–14:00<br>16:00–21:00</div>
+    </div>
+    <div class="h-col active reveal reveal-delay-2">
+      <div class="h-day">Martes</div>
+      <div class="h-time">9:00–14:00<br>16:00–21:00</div>
+    </div>
+    <div class="h-col active reveal reveal-delay-3">
+      <div class="h-day">Miércoles</div>
+      <div class="h-time">9:00–14:00<br>16:00–21:00</div>
+    </div>
+    <div class="h-col active reveal" style="transition-delay:.34s">
+      <div class="h-day">Jueves</div>
+      <div class="h-time">9:00–14:00<br>16:00–21:00</div>
+    </div>
+    <div class="h-col active reveal" style="transition-delay:.46s">
+      <div class="h-day">Viernes</div>
+      <div class="h-time">9:00–14:00<br>16:00–21:00</div>
+    </div>
+    <div class="h-col closed-col reveal" style="transition-delay:.58s">
+      <div class="h-day">Sábado</div>
+      <div class="h-time">Cerrado</div>
+    </div>
+    <div class="h-col closed-col reveal" style="transition-delay:.70s">
+      <div class="h-day">Domingo</div>
+      <div class="h-time">Cerrado</div>
+    </div>
+  </div>
+  <p class="horario-note reveal">Cita previa necesaria · Llámanos o escríbenos por WhatsApp</p>
+</section>
+
+<div class="sep"><div class="sep-line"></div></div>
+
+<!-- ══ 7. UBICACIÓN Y CONTACTO ══ -->
+<section id="contacto" aria-label="Ubicación y contacto de Fixio's Terapeutas">
+  <div class="text-center reveal">
+    <span class="s-label">Dónde estamos</span>
+    <h2 class="s-title">Encuéntranos</h2>
+    <div class="s-rule center"></div>
+  </div>
+  <div class="contact-grid">
+    <div class="reveal-left">
+      <div class="map-wrap">
+        <iframe
+          src="https://www.google.com/maps?q=28.4644085,-16.2708355&hl=es&z=16&output=embed"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Localización de Fixio's Terapeutas en Santa Cruz de Tenerife">
+        </iframe>
+      </div>
+      <div class="contact-btns" style="margin-top:1.4rem">
+        <a href="tel:+34922028292" class="btn btn-dark">Llamar</a>
+        <a href="https://wa.me/34687206000?text=Hola%2C%20me%20gustar%C3%ADa%20pedir%20cita%20en%20Fixio%27s%20Terapeutas" target="_blank" rel="noopener" class="btn btn-blue">WhatsApp</a>
+        <a href="mailto:fixiosterapeutas@gmail.com" class="btn btn-outline-blue">Email</a>
+      </div>
+    </div>
+    <div class="reveal-right">
+      <img src="encuentranosna.png" alt="Fixio's Terapeutas en Santa Cruz de Tenerife" loading="lazy" style="width:100%;height:220px;object-fit:cover;border-radius:var(--radius);margin-bottom:1.6rem;box-shadow:var(--shadow);" />
+      <div class="contact-info">
+        <div class="info-item">
+          <div class="info-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div>
+            <div class="info-label">Dirección</div>
+            <div class="info-value">Av. Islas Canarias, 103<br>38007 Santa Cruz de Tenerife</div>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.24h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.83a16 16 0 0 0 5.27 5.27l1.95-1.84a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+          <div>
+            <div class="info-label">Teléfonos</div>
+            <div class="info-value"><a href="tel:+34922028292">+34 922 02 82 92</a><br><a href="tel:+34687206000">+34 687 20 60 00</a></div>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <div>
+            <div class="info-label">Email</div>
+            <div class="info-value"><a href="mailto:fixiosterapeutas@gmail.com">fixiosterapeutas@gmail.com</a></div>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+          <div>
+            <div class="info-label">Web</div>
+            <div class="info-value"><a href="https://fixiosterapeutas.com" target="_blank" rel="noopener">fixiosterapeutas.com</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 8. FOOTER ══ -->
+<footer aria-label="Pie de página">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="logona.png" alt="Logo Fixio's Terapeutas" />
+      <p>Centro de Fisioterapia, Osteopatía, Pilates y Bienestar en Santa Cruz de Tenerife. Más de 12 años cuidando tu salud.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Horario</h4>
+      <ul>
+        <li>Lun – Vie: 9:00–14:00 · 16:00–21:00</li>
+        <li>Sábado y Domingo: Cerrado</li>
+        <li style="margin-top:.5rem;color:rgba(14,165,233,.7)">Cita previa necesaria</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contacto</h4>
+      <ul>
+        <li><a href="tel:+34922028292">+34 922 02 82 92</a></li>
+        <li><a href="tel:+34687206000">+34 687 20 60 00</a></li>
+        <li><a href="mailto:fixiosterapeutas@gmail.com">fixiosterapeutas@gmail.com</a></li>
+        <li><a href="https://www.instagram.com/fixiosterapeutas" target="_blank" rel="noopener">@fixiosterapeutas</a></li>
+        <li>Av. Islas Canarias, 103<br>38007 Santa Cruz de Tenerife</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Fixio's Terapeutas · Santa Cruz de Tenerife</p>
+    <p>Fisioterapia · Osteopatía · Pilates · Bienestar</p>
+  </div>
+</footer>
+
+<!-- ══ BOTÓN FLOTANTE ══ -->
+<a href="https://wa.me/34687206000?text=Hola%2C%20me%20gustar%C3%ADa%20pedir%20cita%20en%20Fixio%27s%20Terapeutas"
+   target="_blank" rel="noopener noreferrer"
+   class="float-cta" aria-label="Pedir cita en Fixio's Terapeutas por WhatsApp">
+  Pedir cita
+</a>
+
+<script>
+  'use strict';
+
+  /* ── Navbar scroll ── */
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 30);
+  }, { passive: true });
+
+  /* ── Mobile menu ── */
+  const hamburger  = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  function toggleMenu(open) {
+    hamburger.classList.toggle('open', open);
+    hamburger.setAttribute('aria-expanded', String(open));
+    mobileMenu.classList.toggle('open', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+  hamburger.addEventListener('click', () => toggleMenu(!hamburger.classList.contains('open')));
+  document.querySelectorAll('.nav-close').forEach(a => a.addEventListener('click', () => toggleMenu(false)));
+  mobileMenu.addEventListener('click', e => { if (e.target === mobileMenu) toggleMenu(false); });
+
+  /* ── Intersection Observer – reveal ── */
+  const revealObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => revealObs.observe(el));
+
+  /* ── Hero parallax ── */
+  const heroBg = document.querySelector('.hero-bg');
+  if (heroBg) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY < window.innerHeight)
+        heroBg.style.transform = 'translateY(' + (window.scrollY * 0.35) + 'px)';
+    }, { passive: true });
+  }
+
+  /* ── Carrusel de servicios ── */
+  (function () {
+    const track    = document.getElementById('srvTrack');
+    const dotsEl   = document.getElementById('srvDots');
+    const prevBtn  = document.querySelector('.sc-prev');
+    const nextBtn  = document.querySelector('.sc-next');
+    const viewport = document.querySelector('.sc-viewport');
+    const slides   = Array.from(track.querySelectorAll('.sc-slide'));
+    const total    = slides.length;
+    let current    = 0;
+
+    slides.forEach((_, i) => {
+      const d = document.createElement('button');
+      d.className = 'sc-dot' + (i === 0 ? ' active' : '');
+      d.setAttribute('aria-label', 'Servicio ' + (i + 1));
+      d.addEventListener('click', () => goTo(i));
+      dotsEl.appendChild(d);
+    });
+
+    function calcOffset(idx) {
+      const vw  = viewport.offsetWidth;
+      const sw  = slides[0].offsetWidth;
+      const gap = parseFloat(getComputedStyle(track).columnGap) || 25.6;
+      return (vw - sw) / 2 - idx * (sw + gap);
+    }
+
+    function goTo(n) {
+      current = Math.max(0, Math.min(n, total - 1));
+      track.style.transform = 'translateX(' + calcOffset(current) + 'px)';
+      slides.forEach((s, i) => s.classList.toggle('sc-active', i === current));
+      dotsEl.querySelectorAll('.sc-dot').forEach((d, i) => d.classList.toggle('active', i === current));
+      prevBtn.disabled = current === 0;
+      nextBtn.disabled = current === total - 1;
+    }
+
+    prevBtn.addEventListener('click', () => goTo(current - 1));
+    nextBtn.addEventListener('click', () => goTo(current + 1));
+
+    let startX = 0;
+    viewport.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+    viewport.addEventListener('touchend',   e => {
+      const dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 40) goTo(current + (dx < 0 ? 1 : -1));
+    }, { passive: true });
+
+    window.addEventListener('resize', () => goTo(current), { passive: true });
+    goTo(0);
+  }());
+
+  /* ── Reviews marquee infinito ── */
+  (function () {
+    const marquee = document.getElementById('reviewsMarquee');
+    const track   = document.getElementById('reviewsTrack');
+    if (!marquee || !track) return;
+
+    const original = Array.from(track.children);
+    original.forEach(c => track.appendChild(c.cloneNode(true)));
+    original.forEach(c => track.appendChild(c.cloneNode(true)));
+
+    const SPEED  = 50;
+    let offset   = 0, paused = false, lastTime = null;
+
+    function getSetWidth() {
+      const gap = parseFloat(getComputedStyle(track).columnGap) || 22.4;
+      return original.reduce((a, c) => a + c.offsetWidth, 0) + gap * original.length;
+    }
+    function tick(ts) {
+      if (lastTime !== null && !paused) {
+        offset += SPEED * (ts - lastTime) / 1000;
+        const sw = getSetWidth();
+        if (offset >= sw) offset -= sw;
+        track.style.transform = 'translateX(-' + offset.toFixed(2) + 'px)';
+      }
+      lastTime = ts;
+      requestAnimationFrame(tick);
+    }
+    marquee.addEventListener('mouseenter', () => { paused = true; });
+    marquee.addEventListener('mouseleave', () => { paused = false; });
+    requestAnimationFrame(tick);
+  }());
+
+  /* ── Smooth scroll ── */
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (!target) return;
+      e.preventDefault();
+      window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - (navbar.offsetHeight + 12), behavior: 'smooth' });
+    });
+  });
+</script>
+</body>
+</html>
